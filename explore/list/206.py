@@ -4,26 +4,20 @@ class ListNode:
         self.val = x
         self.next = None
 
-#1 ≤ m ≤ n ≤ length of list
-
 class Solution:
-    def reverseBetween(self, head, m, n):
+    def reverseList(self, head):
         """
         :type head: ListNode
-        :type m: int
-        :type n: int
         :rtype: ListNode
         """
-        newHead = ListNode(0)
-        newHead.next = head
-        while m > 1:
-            head = head.next
-        
-
-        return newHead.next
-
-
-
+        pre = None
+        cur = head
+        while cur != None:
+            nex = cur.next
+            cur.next = pre
+            pre = cur
+            cur = nex
+        return pre
 
 s = Solution()
 
@@ -33,4 +27,4 @@ head.next.next = ListNode(3)
 head.next.next.next = ListNode(4)
 head.next.next.next.next = ListNode(5)
 
-print(s.reverseList(head, 2, 4).val)
+print(s.reverseList(head).val)
