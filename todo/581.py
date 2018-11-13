@@ -12,6 +12,9 @@ class Solution:
             l += 1
         return r - l + 1
         #todo more 
+        #todo more 
+        #todo more 
+        #todo more 
         return len(nums)
 
         

@@ -5,26 +5,19 @@ class ListNode:
         self.next = None
 
 class Solution:
-    def reverseList(self, head):
+    def removeElements(self, head, val):
         """
         :type head: ListNode
+        :type val: int
         :rtype: ListNode
         """
-        pre = None
-        cur = head
-        while cur != None:
-            nex = cur.next
-            cur.next = pre
-            pre = cur
-            cur = nex
-        return pre
+        v = ListNode(0)
+        v.next = head
+        p = v
+        while p.next != None:
+            if p.next.val == val:
+                p.next = p.next.next
+            else:
+                p = p.next
 
-s = Solution()
-
-head = ListNode(1)
-head.next = ListNode(2)
-head.next.next = ListNode(3)
-head.next.next.next = ListNode(4)
-head.next.next.next.next = ListNode(5)
-
-print(s.reverseList(head).val)
+        return v.next
