@@ -6,10 +6,12 @@
 #         self.right = None
 
 class Solution(object):
-    def deleteNode(self, root, key):
+    def maxDepth(self, root):
         """
         :type root: TreeNode
-        :type key: int
-        :rtype: TreeNode
+        :rtype: int
         """
-        
+        if root == None:
+            return 0
+        else:
+            return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))

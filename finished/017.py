@@ -45,13 +45,30 @@ class Solution:
             store = tmpStore
         return store
 
+    num = ["", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"]
+    res = []
+    def lc(self, digits):
+        def findCombination(digits, index, s):
+            if index == len(digits):
+                self.res.append(s)
+                return 
+            c = digits[index]
+            letters = self.num[int(c)]
+            for l in letters:
+                findCombination(digits, index + 1, s + l)
+        if digits == "":
+            return []
+        self.res = []
+        findCombination(digits, 0, "")
+        return self.res
 
 s = Solution()
 
 start = time.clock()
-print(s.letterCombinations("556"))
-print(s.letterCombinations("784"))
-print(s.letterCombinations("6248"))
-print(s.letterCombinations(""))
+# print(s.letterCombinations("556"))
+# print(s.letterCombinations("784"))
+# print(s.letterCombinations("6248"))
+print(s.lc("23"))
+print(s.lc(""))
 end = time.clock()
 print(end - start)
