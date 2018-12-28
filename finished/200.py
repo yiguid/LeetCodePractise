@@ -20,7 +20,7 @@ class Solution:
             for i in range(4):
                 newx = x + d[i][0]
                 newy = y + d[i][1]
-                if inGrid(newx,newy) and not visited[newx][newy] and grid[newx][newy] == 1:
+                if inGrid(newx,newy) and not visited[newx][newy] and grid[newx][newy] == "1":
                     dfs(grid, newx, newy)
             return
 
@@ -28,7 +28,7 @@ class Solution:
         res = 0
         for i in range(m):
             for j in range(n):
-                if grid[i][j] == 1 and not visited[i][j]:
+                if grid[i][j] == "1" and not visited[i][j]:
                     res += 1
                     dfs(grid, i, j)
 
@@ -36,17 +36,17 @@ class Solution:
 
 s = Solution()
 area1 = [
-[1,1,1,1,0],
-[1,1,0,1,0],
-[1,1,0,0,0],
-[0,0,0,0,0]
+["1","1","1","1","0"],
+["1","1","0","1","0"],
+["1","1","0","0","0"],
+["0","0","0","0","0"]
 ]
 
 area2 = [
-[1,1,0,0,0],
-[1,1,0,0,0],
-[0,0,1,0,0],
-[0,0,0,1,1]
+["1","1","0","0","0"],
+["1","1","0","0","0"],
+["0","0","1","0","0"],
+["0","0","0","1","1"]
 ]
 
 print(s.numIslands(area1))
